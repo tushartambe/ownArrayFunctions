@@ -22,7 +22,18 @@ const filter = function(functionRef, dataSet) {
 }
 
 const reduce = function(functionRef, dataSet) {
-  return ;
+  let result;
+  if(dataSet.length == 1) {
+    return functionRef(dataSet[0]);
+  }
+
+  if(dataSet.length > 1) {
+    for(let counter = 0; counter < dataSet.length-1; counter++) {
+      result = functionRef(dataSet[counter],dataSet[counter+1]);
+      dataSet[counter+1] = result;
+    }
+  }
+  return result;
 }
 
 exports.map = map;
