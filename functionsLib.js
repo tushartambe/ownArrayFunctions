@@ -21,8 +21,11 @@ const filter = function(functionRef, dataSet) {
   return resultSet;
 }
 
-const reduce = function(functionRef, dataSet) {
+const reduce = function(functionRef, dataSet, initialValue) {
   let result;
+
+  !initialValue || dataSet.unshift(initialValue);
+
   if(dataSet.length == 1) {
     return functionRef(dataSet[0]);
   }

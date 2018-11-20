@@ -46,7 +46,16 @@ const testReduce = function() {
   
   assert.deepEqual(reduce(sum,[2,1]),3);
   assert.deepEqual(reduce(sum,[1]),1);
-  console.log("+------Test for reduce() pass!!------+"); 
+  console.log("+------Test for reduce() without initial value pass!!------+"); 
+  
+  assert.deepEqual(reduce(greatestNumber,[],5),5);
+  assert.deepEqual(reduce(greatestNumber,[2,4,6],0),6);
+  assert.deepEqual(reduce(greatestNumber,[8],5),8);
+  assert.deepEqual(reduce(greatestNumber,[3,4,5],9),9);
+  
+  assert.deepEqual(reduce(sum,[],5),5);
+  assert.deepEqual(reduce(sum,[0,2],6),8);
+  console.log("+------Test for reduce() with initial value pass!!------+"); 
 }
 
 testMap();
