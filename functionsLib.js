@@ -1,18 +1,27 @@
 const map = function(functionRef, dataSet) {
   let resultSet = [];
   
-  for (element of dataSet) { 
+  for(element of dataSet) { 
     resultSet.push(functionRef(element));
   }
 
   return resultSet;
 }
 
-const filter = function(dataSet,functionRef) {
-  return [];
+const filter = function(functionRef, dataSet) {
+  let result;
+  let resultSet = [];
+
+  for(element of dataSet) {
+    result = functionRef(element);
+    if(result) {
+      resultSet.push(element);
+    }
+  }
+  return resultSet;
 }
 
-const reduce = function(dataSet,functionRef) {
+const reduce = function(functionRef, dataSet) {
   return ;
 }
 
