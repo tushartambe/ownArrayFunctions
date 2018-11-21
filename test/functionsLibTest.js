@@ -59,12 +59,16 @@ describe('reduce', function () {
     it('should return same element for only one element', function () {
       assert.deepEqual(reduce(greatestNumber,[5]),5);
     });
+    
+    it('for empty []', function () {
+      assert.deepEqual(reduce(greatestNumber,[]),undefined);
+    });
 
     it('should return greatest number for multiple elements', function () {
       assert.deepEqual(reduce(greatestNumber,[5,3]),5);
       assert.deepEqual(reduce(greatestNumber,[2,1,5,7,8,3]),8);
     });
-    
+
     it('should return initial value for input empty [] and initial value', function () {
       assert.deepEqual(reduce(greatestNumber,[],5),5);
     });
@@ -72,7 +76,7 @@ describe('reduce', function () {
     it('should return greatest of initial value and array with only one element', function () {
       assert.deepEqual(reduce(greatestNumber,[8],5),8);
     });
-  
+
     it('should return greatest of initial value and array with multiple elements', function () {
       assert.deepEqual(reduce(greatestNumber,[2,4,6],0),6);
       assert.deepEqual(reduce(greatestNumber,[3,4,5],9),9);
@@ -87,14 +91,18 @@ describe('reduce', function () {
     it('should return sum of all numbers for multiple elements', function () {
       assert.deepEqual(reduce(sum,[2,1]),3);
     });
-    
+
     it('should return initial value for input empty [] and initial value', function () {
       assert.deepEqual(reduce(sum,[],5),5);
     });
     
-    it('should return sum of initial value and array with multiple elements', function () {
-    assert.deepEqual(reduce(sum,[0,2],6),8);
+    it('should return initial value for input empty [] and initial value 0', function () {
+      assert.deepEqual(reduce(sum,[],0),0);
     });
-  
+
+    it('should return sum of initial value and array with multiple elements', function () {
+      assert.deepEqual(reduce(sum,[0,2],6),8);
+    });
+
   });
 });
